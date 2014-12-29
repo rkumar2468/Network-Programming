@@ -1,7 +1,5 @@
 *.bak
 client_cli
 *.o
-echo_cli 
-client 
-time_cli 
-server
+echo_cli
+time_cli
