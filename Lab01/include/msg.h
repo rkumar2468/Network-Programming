@@ -1,0 +1,7 @@
+#define CLISTART "Client Started.!"
+#define CLIEND "Client Exited.!"
+#define CLIENTREPLY "Status: "
+#define SERVREPLY "Reply from server: "
+#define ECHOESTD "Msg: Echo server connected.!\n"
+#define INPUT "Enter text: "
+#define NEWLINE "\n"

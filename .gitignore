@@ -1,0 +1,7 @@
+*.bak
+client_cli
+*.o
+echo_cli 
+client 
+time_cli 
+server
