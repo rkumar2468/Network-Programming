@@ -19,7 +19,8 @@ void sig_child(int signo)
 	pid_t pid;
 	int stat;
 	pid = wait(&stat);
-	Fputs(CLIEND,stdout);
+	Fputs(GENCLIEND,stdout);
+	Fputs(NEWLINE,stdout);
 	return;
 }
 
@@ -28,7 +29,7 @@ char *getChoice(int ch)
 	if(ch == 1)
 		return "./echo_cli";
 	else if(ch == 2)
-		return "./timeserver";
+		return "./time_cli";
 	else 
 		return;
 }

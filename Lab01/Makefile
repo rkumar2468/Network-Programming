@@ -32,8 +32,11 @@ FLAGS = -g -O2
 CFLAGS = ${FLAGS} -I/home/courses/cse533/Stevens/unpv13e_solaris2.10/lib \
 		 -I/home/stufs1/ssrinath/Raj/Lab01/include
 
-all: client server echo_cli # time_cli 
+all: client server echo_cli time_cli 
 
+debug: CC = gcc -ggdb
+debug: CFLAGS += -DDEBUG
+debug: client server echo_cli time_cli 
 
 time_cli: timeClient
 	${CC} ${FLAGS} -o time_cli Client/time_cli.o ${LIBS}
@@ -54,11 +57,14 @@ echoFun: Client/echo_fun.c
 
 # server uses the thread-safe version of readline.c
 
-server: echotimeServ readLine
+server: echotimeServ readLine # timeserv
 	${CC} ${FLAGS} -o server Server/tcpechotimesrv.o Server/readline.o ${LIBS}
 echotimeServ: Server/tcpechotimesrv.c
 	cd Server; \
 	${CC} ${CFLAGS} -c tcpechotimesrv.c
+timeserv: Server/timeserv.c
+	cd Server; \
+	${CC} ${CFLAGS} -c timeserv.c
 
 
 client: tcpechotimecli
